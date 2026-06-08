@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="id" class="dark-theme">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VerrozzHost — Premium Digital Store</title>
+    <meta name="description"
+        content="VerrozzHost - Toko Premium Apps & Panel Pterodactyl terpercaya. Menyediakan Netflix, Spotify, Canva, dan server Pterodactyl.">
+    <meta name="theme-color" content="#000000">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="https://res.cloudinary.com/dvpm3w0ed/image/upload/v1780857184/vajpvxlekplhxqr7hzu4.jpg"
+        type="image/jpeg">
+
+    <style>
+        /* ==========================================================================
+           DESIGN SYSTEM & VARIABLES
+           ========================================================================== */
+        :root {
+            /* Colors - Dark Minimalist Palette */
+            --color-bg-base: #000000;
+            --color-bg-surface: #06090e;
+            --color-bg-surface-hover: #0c121e;
+            --color-bg-surface-elevated: #111827;
+
+            --color-primary: #1e3a8a;
+            --color-primary-hover: #2563eb;
+            --color-primary-transparent: rgba(30, 58, 138, 0.2);
+
+            --color-text-base: #f8fafc;
+            --color-text-muted: #94a3b8;
+            --color-text-subtle: #475569;
+
+            --color-border-base: #1e293b;
+            --color-border-hover: #334155;
+
+            --color-success: #10b981;
+            --color-danger: #ef4444;
+            --color-warning: #f59e0b;
+            --color-info: #3b82f6;
+
+            /* Typography */
+            --font-sans: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+
+            /* Spacing */
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-5: 1.25rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-10: 2.5rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            --spacing-20: 5rem;
+            --spacing-24: 6rem;
+
+            /* Borders & Shadows */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 15px var(--color-primary-transparent);
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+            /* Z-Index Layers */
+            --z-behind: -1;
+            --z-normal: 1;
+            --z-dropdown: 10;
+            --z-sticky: 20;
+            --z-overlay: 30;
+            --z-modal: 40;
+            --z-toast: 50;
+
+            /* Layout */
+            --container-width: 1200px;
+            --container-width-sm: 640px;
+        }
+
+        /* ==========================================================================
+           RESET & BASE STYLES
+           ========================================================================== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--color-bg-base);
+            color: var(--color-text-base);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        button {
+            font-family: inherit;
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: inherit;
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        input {
+            font-family: inherit;
+            border: none;
+            background: none;
+            outline: none;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        img,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--color-bg-base);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-border-base);
+            border-radius: var(--radius-full);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-border-hover);
+        }
+
+        /* ==========================================================================
+           UTILITY CLASSES
+           ========================================================================== */
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-4);
+        }
+
+        .container-sm {
+            max-width: var(--container-width-sm);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-muted {
+            color: var(--color-text-muted);
+        }
+
+        .text-primary {
+            color: var(--color-primary-hover);
+        }
+
+        .font-light {
+            font-weight: 300;
+        }
+
+        .font-normal {
+            font-weight: 400;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+
+        .font-semibold {
+            font-weight: 600;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .align-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .gap-2 {
+            gap: var(--spacing-2);
+        }
+
+        .gap-4 {
+            gap: var(--spacing-4);
+        }
+
+        .gap-6 {
+            gap: var(--spacing-6);
+        }
+
+        .mt-4 {
+            margin-top: var(--spacing-4);
+        }
+
+        .mt-8 {
+            margin-top: var(--spacing-8);
+        }
+
+        .mb-4 {
+            margin-bottom: var(--spacing-4);
+        }
+
+        .mb-8 {
+            margin-bottom: var(--spacing-8);
+        }
+
+        /* Typography Utilities */
+        .h1 {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .h2 {
+            font-size: var(--text-3xl);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        .h3 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .p-lead {
+            font-size: var(--text-lg);
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           COMPONENTS
+           ========================================================================== */
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-2);
+            padding: var(--spacing-2) var(--spacing-4);
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            font-size: var(--text-sm);
+            transition: all var(--transition-fast);
+            user-select: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: #ffffff;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background-color: var(--color-primary-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--color-text-base);
+            border: 1px solid var(--color-border-base);
+        }
+
+        .btn-outline:hover:not(:disabled) {
+            border-color: var(--color-p                rimary);
+            background-color: var(--color-primary-transparent);
+        }
+
+        .btn-icon {
+            padding: var(--spacing-2);
+            border-radius: var(--radius-full);
+            background-color: var(--color-bg-surface);
+            border: 1px solid var(--color-border-base);
+            color: var(--color-text-muted);
+            transition: all var(--transition-fast);
+        }
+
+        .btn-icon:hover {
+            color: var(--color-text-base);
+            border-color: var(--color-border-hover);
+            background-color: var(--color-bg-surface-hover);
+        }
+
+        /* Inputs & Search */
+        .input-group {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: var(--spacing-3);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-muted);
+            pointer-events: none;
+        }
+
+        .input-field {
+            width: 100%;
+            background-color: var(--color-bg-surface);
+            border: 1px solid var(--color-border-base);
+            color: var(--color-text-base);
+            padding: var(--spacing-3) var(--spacing-4) var(--spacing-3) var(--spacing-10);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .input-field:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px var(--color-primary-transparent);
+        }
+
+        .input-field::placeholder {
+            color: var(--color-text-subtle);
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--color-border-base);
+            border-top-color: var(--color-primary-hover);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.125rem 0.375rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .badge-absolute {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        /* ==========================================================================
+           LAYOUT SECTIONS
+           ========================================================================== */
+
+        /* Header / Navbar */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: var(--z-sticky);
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border-base);
+            padding: var(--spacing-3) 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            font-weight: 700;
+            font-size: var(--text-lg);
+            letter-spacing: -0.02em;
+        }
+
+        .brand-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--color-border-base);
+        }
+
+        .brand-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--spacing-16) 0 var(--spacing-12);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--color-primary-transparent) 0%, transparent 70%);
+            opacity: 0.5;
+            z-index: var(--z-behind);
+            pointer-events: none;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto var(--spacing-6);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            border: 2px solid var(--color-border-base);
+            box-shadow: var(--shadow-lg);
+            background-color: var(--color-bg-surface);
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .profile-wrapper:hover .profile-img img {
+            transform: scale(1.05);
+        }
+
+        .profile-glow {
+            position: absolute;
+            inset: -10px;
+            background: linear-gradient(135deg, var(--color-primary), transparent);
+            border-radius: 2rem;
+            filter: blur(20px);
+            opacity: 0.3;
+            z-index: 1;
+            animation: pulse-glow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                opacity: 0.2;
+                transform: scale(0.95);
+            }
+
+            100% {
+                opacity: 0.5;
+                transform: scale(1.05);
+            }
+        }
+
+        .hero-title {
+            margin-bottom: var(--spacing-2);
+        }
+
+        .hero-title span {
+            color: var(--color-primary-hover);
+        }
+
+        /* Filter Section */
+        .filter-section {
+            margin-bottom: var(--spacing-8);
+        }
+
+        /* Products Catalog */
+        .catalog {
+            margin-bottom: var(--spacing-16);
+            min-height: 400px;
+            /* Prevent layout shift */
+        }
+
+        .category-group {
+            background-color: var(--color-bg-surface);
+            border: 1px solid var(--color-border-base);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--spacing-6);
+            overflow: hidden;
+            transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+        }
+
+        .category-group:hover {
+            border-color: var(--color-border-hover);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .category-header {
+            padding: var(--spacing-5) var(--spacing-6);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+            background-color: transparent;
+            transition: background-color var(--transition-fast);
+        }
+
+        .category-header:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .category-header-left {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-4);
+        }
+
+        .category-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
+            background-color: var(--color-bg-surface-elevated);
+            border: 1px solid var(--color-border-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary-hover);
+        }
+
+        .category-info h2 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            margin-bottom: 0.125rem;
+        }
+
+        .category-info p {
+            font-size: var(--text-xs);
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .category-chevron {
+            color: var(--color-text-muted);
+            transition: transform var(--transition-normal);
+        }
+
+        .category-group.is-open .category-chevron {
+            transform: rotate(180deg);
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows var(--transition-normal);
+        }
+
+        .category-group.is-open .product-list {
+            grid-template-rows: 1fr;
+        }
+
+        .product-list-inner {
+            overflow: hidden;
+        }
+
+        .product-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-4) var(--spacing-6);
+            border-top: 1px solid var(--color-border-base);
+            transition: background-color var(--transition-fast);
+        }
+
+        .product-item:hover {
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+
+        .product-item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .product-item-name {
+            font-weight: 500;
+            font-size: var(--text-base);
+        }
+
+        .product-item-price {
+            font-size: var(--text-sm);
+            color: var(--color-primary-hover);
+            font-family: var(--font-mono);
+        }
+
+        .btn-add-cart {
+            min-width: 100px;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: var(--spacing-12) 0;
+            color: var(--color-text-muted);
+        }
+
+        .empty-state svg {
+            margin: 0 auto var(--spacing-4);
+            color: var(--color-border-hover);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: var(--spacing-12) 0;
+            border-top: 1px solid var(--color-border-base);
+        }
+
+        .faq-grid {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+            margin-top: var(--spacing-8);
+        }
+
+        .faq-item {
+            border: 1px solid var(--color-border-base);
+            border-radius: var(--radius-lg);
+            background-color: var(--color-bg-surface);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: var(--spacing-4) var(--spacing-5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            user-select: none;
+        }
+
+        .faq-answer {
+            padding: 0 var(--spacing-5);
+            max-height: 0;
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            color: var(--color-text-muted);
+            font-size: var(--text-sm);
+        }
+
+        .faq-item.is-open .faq-answer {
+            padding-bottom: var(--spacing-4);
+            max-height: 200px;
+        }
+
+        .faq-item.is-open .faq-question {
+            color: var(--color-primary-hover);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: var(--spacing-12) 0;
+            border-top: 1px solid var(--color-border-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-6);
+            margin-top: var(--spacing-8);
+        }
+
+        .testimonial-card {
+            background-color: var(--color-bg-surface);
+            border: 1px solid var(--color-border-base);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-6);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 2px;
+            color: var(--color-warning);
+        }
+
+        .testimonial-content {
+            font-size: var(--text-sm);
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            margin-top: auto;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            background-color: var(--color-border-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            font-size: var(--text-sm);
+        }
+
+        .author-info h4 {
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+
+        .author-info p {
+            font-size: var(--text-xs);
+            color: var(--color-text-subtle);
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: auto;
+            border-top: 1px solid var(--color-border-base);
+            background-color: var(--color-bg-surface);
+            padding: var(--spacing-12) 0 var(--spacing-6);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .footer-col h3 {
+            font-size: var(--text-base);
+            font-weight: 600;
+            margin-bottom: var(--spacing-4);
+            color: var(--color-text-base);
+        }
+
+        .footer-col p {
+            color: var(--color-text-muted);
+            font-size: var(--text-sm);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-4);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-2);
+        }
+
+        .footer-links a {
+            color: var(--color-text-muted);
+            font-size: var(--text-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-primary-hover);
+        }
+
+        .footer-bottom {
+            padding-top: var(--spacing-6);
+            border-top: 1px solid var(--color-border-base);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-4);
+            text-align: center;
+        }
+
+        .footer-copy {
+            font-size: var(--text-sm);
+            color: var(--color-text-subtle);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-4);
+        }
+
+        .social-link {
+            color: var(--color-text-muted);
+        }
+
+        .social-link:hover {
+            color: var(--color-text-base);
+        }
+
+        /* ==========================================================================
+           CART DRAWER (MODAL)
+           ========================================================================== */
+        .cart-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: var(--z-overlay);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-normal);
+        }
+
+        .cart-overlay.is-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            max-width: 400px;
+            background-color: var(--color-bg-surface);
+            border-left: 1px solid var(--color-border-base);
+            z-index: var(--z-modal);
+            transform: translateX(100%);
+            transition: transform var(--transition-bounce);
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .cart-drawer.is-active {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            padding: var(--spacing-5) var(--spacing-6);
+            border-bottom: 1px solid var(--color-border-base);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-title {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+        }
+
+        .cart-body {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: var(--spacing-6);
+        }
+
+        .cart-empty-message {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--color-text-muted);
+            text-align: center;
+            gap: var(--spacing-4);
+        }
+
+        .cart-items-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .cart-item {
+            display: flex;
+            gap: var(--spacing-4);
+            padding-bottom: var(--spacing-4);
+            border-bottom: 1px solid var(--color-border-base);
+        }
+
+        .cart-item-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-1);
+        }
+
+        .cart-item-title {
+            font-weight: 500;
+            font-size: var(--text-sm);
+        }
+
+        .cart-item-category {
+            font-size: var(--text-xs);
+            color: var(--color-text-muted);
+        }
+
+        .cart-item-price {
+            font-weight: 600;
+            color: var(--color-primary-hover);
+            font-size: var(--text-sm);
+            margin-top: var(--spacing-1);
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+        }
+
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            background-color: var(--color-bg-base);
+            border: 1px solid var(--color-border-base);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .qty-btn {
+            padding: var(--spacing-1) var(--spacing-2);
+            color: var(--color-text-muted);
+        }
+
+        .qty-btn:hover {
+            background-color: var(--color-border-hover);
+            color: var(--color-text-base);
+        }
+
+        .qty-value {
+            font-size: var(--text-xs);
+            font-weight: 500;
+            width: 24px;
+            text-align: center;
+        }
+
+        .btn-remove {
+            color: var(--color-text-subtle);
+            padding: var(--spacing-1);
+        }
+
+        .btn-remove:hover {
+            color: var(--color-danger);
+        }
+
+        .cart-footer {
+            padding: var(--spacing-6);
+            border-top: 1px solid var(--color-border-base);
+            background-color: var(--color-bg-base);
+        }
+
+        .cart-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-4);
+            font-size: var(--text-lg);
+            font-weight: 600;
+        }
+
+        .btn-checkout {
+            width: 100%;
+            padding: var(--spacing-3);
+            font-size: var(--text-base);
+            background-color: #25D366;
+            /* WhatsApp Green */
+            color: #000;
+            font-weight: 600;
+        }
+
+        .btn-checkout:hover:not(:disabled) {
+            background-color: #1ebd5a;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* ==========================================================================
+           TOAST NOTIFICATIONS
+           ========================================================================== */
+        .toast-container {
+            position: fixed;
+            bottom: var(--spacing-6);
+            right: var(--spacing-6);
+            z-index: var(--z-toast);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-3);
+            pointer-events: none;
+        }
+
+        .toast {
+            background-color: var(--color-bg-surface-elevated);
+            border: 1px solid var(--color-border-base);
+            color: var(--color-text-base);
+            padding: var(--spacing-3) var(--spacing-4);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            min-width: 280px;
+            transform: translateX(120%);
+            transition: transform var(--transition-bounce), opacity var(--transition-normal);
+            pointer-events: auto;
+        }
+
+        .toast.is-visible {
+            transform: translateX(0);
+        }
+
+        .toast.is-hiding {
+            transform: translateX(120%);
+            opacity: 0;
+        }
+
+        .toast-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toast-icon.success {
+            color: var(--color-success);
+        }
+
+        .toast-icon.error {
+            color: var(--color-danger);
+        }
+
+        .toast-icon.info {
+            color: var(--color-info);
+        }
+
+        .toast-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .toast-title {
+            font-size: var(--text-sm);
+            font-weight: 600;
+        }
+
+        .toast-message {
+            font-size: var(--text-xs);
+            color: var(--color-text-muted);
+        }
+
+        /* ==========================================================================
+           PAGE LOADER
+           ========================================================================== */
+        .page-loader {
+            position: fixed;
+            inset: 0;
+            background-color: var(--color-bg-base);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-4);
+            transition: opacity var(--transition-slow), visibility var(--transition-slow);
+        }
+
+        .page-loader.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-brand {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* ==========================================================================
+           RESPONSIVE MEDIA QUERIES
+           ========================================================================== */
+        @media (max-width: 768px) {
+            :root {
+                --text-4xl: 1.875rem;
+                --text-3xl: 1.5rem;
+                --text-2xl: 1.25rem;
+            }
+
+            .container {
+                padding: 0 var(--spacing-4);
+            }
+
+            .hero {
+                padding: var(--spacing-10) 0 var(--spacing-8);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-6);
+            }
+
+            .cart-drawer {
+                max-width: 100%;
+                border-left: none;
+            }
+
+            .toast-container {
+                bottom: var(--spacing-4);
+                left: var(--spacing-4);
+                right: var(--spacing-4);
+                align-items: stretch;
+            }
+
+            .toast {
+                min-width: auto;
+                transform: translateY(120%);
+            }
+
+            .toast.is-hiding {
+                transform: translateY(120%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =======================================================================
+         PAGE LOADER
+         ======================================================================= -->
+    <div id="pageLoader" class="page-loader">
+        <div class="loader-brand">VERROZZ<span class="text-primary">HOST</span></div>
+        <div class="spinner"></div>
+    </div>
+
+    <!-- =======================================================================
+         NAVIGATION / HEADER
+         ======================================================================= -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="#" class="brand">
+                <div class="brand-logo">
+                    <img src="https://res.cloudinary.com/dvpm3w0ed/image/upload/v1780857184/vajpvxlekplhxqr7hzu4.jpg"
+                        alt="VH">
+                </div>
+                <span>Verrozz<span class="text-primary">Host</span></span>
+            </a>
+
+            <button id="cartToggleBtn" class="btn btn-outline" aria-label="Open Cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="font-semibold">Cart</span>
+                <span id="cartBadge" class="badge badge-absolute" style="display: none;">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- =======================================================================
+         MAIN CONTENT
+         ======================================================================= -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero container-sm container">
+            <div class="profile-wrapper">
+                <div class="profile-glow"></div>
+                <div class="profile-img">
+                    <img src="https://res.cloudinary.com/dvpm3w0ed/image/upload/v1780857184/vajpvxlekplhxqr7hzu4.jpg"
+                        alt="VerrozzHost Owner">
+                </div>
+            </div>
+            <h1 class="h1 hero-title">Digital Store <span>Premium</span></h1>
+            <p class="p-lead">Kami penyedia beberapa product digital yang bisa kalian beli, seperti premium apps, panel ptrodactyl, suntik sosmed dll.</p>
+        </section>
+
+        <!-- Catalog Section -->
+        <section class="container-sm container catalog">
+
+            <!-- Search & Filter -->
+            <div class="filter-section">
+                <div class="input-group">
+                    <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="searchInput" class="input-field"
+                        placeholder="Cari aplikasi atau produk panel..." autocomplete="off">
+                </div>
+            </div>
+
+            <!-- Dynamic Product Container -->
+            <div id="catalogContainer">
+                <!-- Products injected via JS -->
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="emptySearchState" class="empty-state" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <h3 class="h3 mb-2">Produk Tidak Ditemukan</h3>
+                <p class="text-sm">Coba gunakan kata kunci pencarian yang lain.</p>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="h2 mb-2">Testimonial Buyer VerrozzHost</h2>
+                    <p class="text-muted">Ratusan transaksi berhasil sejak 2025.</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <!-- Card 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                        </div>
+                        <p class="testimonial-content">"Respon adminnya cepet jier, sung langganan ini mah proses ga sampe 5 menit uda kelar."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">LZ</div>
+                            <div class="author-info">
+                                <h4>Lanz.</h4>
+                                <p>Verified Buyer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                        </div>
+                        <p class="testimonial-content">"panel ptrodactyl nya cukup bagus sih, harga juga terjangkau garansi juga ada ya bagus lah buat web kayak gini."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MM</div>
+                            <div class="author-info">
+                                <h4>Memet.</h4>
+                                <p>Verified buyer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="currentColor" stroke="none">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                        </div>
+                        <p class="testimonial-content">"Web recommended jier, premium apps uda jelas aman, supplier langsung dari premilo😘"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">PR</div>
+                            <div class="author-info">
+                                <h4>Premilo.</h4>
+                                <p>Supplier</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container container-sm">
+                <div class="text-center mb-8">
+                    <h2 class="h2 mb-2">Pertanyaan Umum</h2>
+                    <p class="text-muted">Hal yang paling sering ditanyakan pelanggan kami.</p>
+                </div>
+
+                <div class="faq-grid" id="faqContainer">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Apakah aplikasinya legal dan aman?</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" style="transition: transform 0.3s;">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Tentu saja. Semua aplikasi yang kami sediakan diproses secara legal dan aman 100%. Kami
+                                memberikan garansi selama masa aktif berlangganan Anda.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Berapa lama proses aktivasi setelah pembayaran?</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" style="transition: transform 0.3s;">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Rata-rata proses aktivasi memakan waktu 5 hingga 15 menit pada jam kerja setelah bukti
+                                pembayaran kami terima dan validasi.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Metode pembayaran apa saja yang tersedia?</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" style="transition: transform 0.3s;">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Saat ini kami melayani pembayaran melalui Transfer Bank (BCA, Mandiri), E-Wallet (DANA,
+                                GoPay, OVO, ShopeePay), dan QRIS untuk memudahkan transaksi Anda.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =======================================================================
+         FOOTER
+         ======================================================================= -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="brand mb-4">
+                        <div class="brand-logo">
+                            <img src="https://res.cloudinary.com/dvpm3w0ed/image/upload/v1780857184/vajpvxlekplhxqr7hzu4.jpg"
+                                alt="VH">
+                        </div>
+                        <span>Verrozz<span class="text-primary">Host</span></span>
+                    </div>
+                    <p>Layanan premium digital dan penyedia server panel terkemuka dengan fokus pada kualitas,
+                        kecepatan, dan kepuasan pelanggan.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Layanan Kami</h3>
+                    <div class="footer-links">
+                        <a href="#">Premium Apps</a>
+                        <a href="#">Panel Pterodactyl</a>
+                        <a href="#">Jasa Sewa Bot</a>
+                        <a href="#">Suntik Sosmed</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Hubungi Kami</h3>
+                    <div class="footer-links">
+                        <a href="https://wa.me/6285791277879" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                </path>
+                            </svg>
+                            +62 857-9127-7879
+                        </a>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            alimuhammad201219@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+                <p class="footer-copy">&copy; 2026 VerrozzHost. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =======================================================================
+         CART MODAL / DRAWER
+         ======================================================================= -->
+    <div id="cartOverlay" class="cart-overlay"></div>
+    <div id="cartDrawer" class="cart-drawer">
+        <div class="cart-header">
+            <h2 class="cart-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                Keranjang
+            </h2>
+            <button id="closeCartBtn" class="btn-icon" aria-label="Close cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div id="cartBody" class="cart-body">
+            <!-- Injected by JS -->
+        </div>
+
+        <div class="cart-footer">
+            <button id="checkoutBtn" class="btn btn-checkout" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                    </path>
+                </svg>
+                Checkout via WhatsApp
+            </button>
+            <p class="text-xs text-muted text-center mt-4">Pembayaran akan dikonfirmasi manual melalui admin.</p>
+        </div>
+    </div>
+
+    <!-- =======================================================================
+         TOAST NOTIFICATION CONTAINER
+         ======================================================================= -->
+    <div id="toastContainer" class="toast-container"></div>
+
+
+    <!-- =======================================================================
+         JAVASCRIPT ARCHITECTURE
+         ======================================================================= -->
+    <script>
+        /**
+         * VerrozzHost - Minimalist Robust E-Commerce Architecture
+         * Author: DeepMind Assistant
+         * Description: Vanilla JS OOP implementation for state, UI, and cart logic.
+         */
+
+        // 1. DATA LAYER
+        // ==========================================
+        const StoreData = {
+            adminPhone: "6285791277879",
+            categories: [
+                {
+                    id: 'premium-apps',
+                    title: 'Aplikasi Premium',
+                    description: 'Lisensi resmi, garansi penuh',
+                    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>',
+                    items: [
+                        { id: 'app-gpt', name: 'ChatGPT Plus (1 Bulan)', price: 45000, type: 'App' },
+                        { id: 'app-spot', name: 'Spotify Premium (1 Bulan)', price: 15000, type: 'App' },
+                        { id: 'app-net', name: 'Netflix Premium UHD (1 Bulan)', price: 35000, type: 'App' },
+                        { id: 'app-cnv', name: 'Canva Pro (1 Tahun)', price: 25000, type: 'App' },
+                        { id: 'app-yt', name: 'YouTube Premium (1 Bulan)', price: 10000, type: 'App' },
+                        { id: 'app-cap', name: 'CapCut Pro (1 Bulan)', price: 20000, type: 'App' },
+                        { id: 'app-am', name: 'Alight Motion Premium (1 Tahun)', price: 15000, type: 'App' }
+                    ]
+                },
+                {
+                    id: 'panel-pterodactyl',
+                    title: 'Panel Pterodactyl',
+                    description: 'Server uptime 99.9%, lokasi SG/ID',
+                    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>',
+                    items: [
+                        { id: 'pt-1gb', name: 'Server 1 GB RAM', price: 2000, type: 'Panel' },
+                        { id: 'pt-2gb', name: 'Server 2 GB RAM', price: 3000, type: 'Panel' },
+                        { id: 'pt-3gb', name: 'Server 3 GB RAM', price: 4000, type: 'Panel' },
+                        { id: 'pt-4gb', name: 'Server 4 GB RAM', price: 5000, type: 'Panel' },
+                        { id: 'pt-5gb', name: 'Server 5 GB RAM', price: 6000, type: 'Panel' },
+                        { id: 'pt-6gb', name: 'Server 6 GB RAM', price: 7000, type: 'Panel' },
+                        { id: 'pt-unlimited', name: 'Server Unlimited RAM', price: 14000, type: 'Panel' }
+]
+},
+
+{
+    id: 'suntik-sosmed',
+    title: 'Suntik Sosmed',
+    description: 'Followers, Likes, Views & Member',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+    items: [
+        { id: 'smm1', name: 'TikTok Paket FYP', price: 0, type: 'SMM' },
+        { id: 'smm2', name: 'Instagram Followers (No Garansi)', price: 0, type: 'SMM' },
+        { id: 'smm3', name: 'Instagram Followers (Garansi 30 Hari)', price: 0, type: 'SMM' },
+        { id: 'smm4', name: 'Instagram Buzzer Indonesia', price: 0, type: 'SMM' },
+        { id: 'smm5', name: 'Instagram Followers Indonesia', price: 0, type: 'SMM' },
+        { id: 'smm6', name: 'TikTok Followers (No Garansi)', price: 0, type: 'SMM' },
+        { id: 'smm7', name: 'TikTok Buzzer Indonesia', price: 0, type: 'SMM' },
+        { id: 'smm8', name: 'TikTok Followers (Garansi)', price: 0, type: 'SMM' },
+        { id: 'smm9', name: 'TikTok Likes (Garansi)', price: 0, type: 'SMM' },
+        { id: 'smm10', name: 'Telegram Channel/Group Member', price: 0, type: 'SMM' },
+        { id: 'smm11', name: 'Telegram Post View', price: 0, type: 'SMM' }
+    ]
+}
+
+],
+
+            // Helper to find a product by ID globally
+            getProductById(productId) {
+                for (const cat of this.categories) {
+                    const found = cat.items.find(item => item.id === productId);
+                    if (found) return found;
+                }
+                return null;
+            }
+        };
+
+
+        // 2. UTILITY & FORMATTER
+        // ==========================================
+        const Utils = {
+            formatCurrency(amount) {
+                return new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(amount);
+            },
+
+            debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+        };
+
+
+        // 3. NOTIFICATION SYSTEM
+        // ==========================================
+        class NotificationSystem {
+            constructor() {
+                this.container = document.getElementById('toastContainer');
+            }
+
+            show(title, message, type = 'info', duration = 3000) {
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+
+                let iconSvg = '';
+                if (type === 'success') {
+                    iconSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>';
+                } else if (type === 'error') {
+                    iconSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>';
+                } else {
+                    iconSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>';
+                }
+
+                toast.innerHTML = `
+                    <div class="toast-icon ${type}">${iconSvg}</div>
+                    <div class="toast-content">
+                        <span class="toast-title">${title}</span>
+                        <span class="toast-message">${message}</span>
+                    </div>
+                `;
+
+                this.container.appendChild(toast);
+
+                // Trigger animation
+                requestAnimationFrame(() => {
+                    toast.classList.add('is-visible');
+                });
+
+                // Auto dismiss
+                setTimeout(() => {
+                    this.dismiss(toast);
+                }, duration);
+
+                // Click to dismiss early
+                toast.addEventListener('click', () => this.dismiss(toast));
+            }
+
+            dismiss(toastElement) {
+                toastElement.classList.remove('is-visible');
+                toastElement.classList.add('is-hiding');
+                toastElement.addEventListener('transitionend', () => {
+                    toastElement.remove();
+                });
+            }
+        }
+
+        const notify = new NotificationSystem();
+
+
+        // 4. SHOPPING CART LOGIC
+        // ==========================================
+        class CartManager {
+            constructor() {
+                this.items = new Map(); // productId -> { product, quantity }
+                this.listeners = [];
+            }
+
+            subscribe(callback) {
+                this.listeners.push(callback);
+            }
+
+            notifyListeners() {
+                this.listeners.forEach(cb => cb(this.getItems(), this.getTotalPrice(), this.getTotalQuantity()));
+            }
+
+            addItem(productId) {
+                const product = StoreData.getProductById(productId);
+                if (!product) return;
+
+                if (this.items.has(productId)) {
+                    const current = this.items.get(productId);
+                    this.items.set(productId, { ...current, quantity: current.quantity + 1 });
+                } else {
+                    this.items.set(productId, { product, quantity: 1 });
+                }
+
+                notify.show('Ditambahkan', `${product.name} masuk ke keranjang`, 'success');
+                this.notifyListeners();
+            }
+
+            removeItem(productId) {
+                if (this.items.has(productId)) {
+                    this.items.delete(productId);
+                    this.notifyListeners();
+                }
+            }
+
+            updateQuantity(productId, newQty) {
+                if (newQty <= 0) {
+                    this.removeItem(productId);
+                    return;
+                }
+                if (this.items.has(productId)) {
+                    const current = this.items.get(productId);
+                    this.items.set(productId, { ...current, quantity: newQty });
+                    this.notifyListeners();
+                }
+            }
+
+            getItems() {
+                return Array.from(this.items.values());
+            }
+
+            getTotalPrice() {
+                let total = 0;
+                for (const item of this.items.values()) {
+                    total += item.product.price * item.quantity;
+                }
+                return total;
+            }
+
+            getTotalQuantity() {
+                let qty = 0;
+                for (const item of this.items.values()) {
+                    qty += item.quantity;
+                }
+                return qty;
+            }
+
+            generateWhatsAppUrl() {
+                if (this.items.size === 0) return '#';
+
+                let text = 'Halo Admin VerrozzHost, saya ingin memesan:\n\n';
+
+                this.getItems().forEach((item, index) => {
+                    text += `${index + 1}. ${item.product.name} (x${item.quantity})\n`;
+                });
+
+                text += `\nMohon info lebih lanjut. Terima kasih!`;
+
+                return `https://wa.me/${StoreData.adminPhone}?text=${encodeURIComponent(text)}`;
+            }
+        }
+
+        const cart = new CartManager();
+
+
+        // 5. UI CONTROLLER
+        // ==========================================
+        class UIController {
+            constructor() {
+                // DOM Elements
+                this.catalogContainer = document.getElementById('catalogContainer');
+                this.searchInput = document.getElementById('searchInput');
+                this.emptySearchState = document.getElementById('emptySearchState');
+
+                // Cart DOM
+                this.cartOverlay = document.getElementById('cartOverlay');
+                this.cartDrawer = document.getElementById('cartDrawer');
+                this.cartToggleBtn = document.getElementById('cartToggleBtn');
+                this.closeCartBtn = document.getElementById('closeCartBtn');
+                this.cartBody = document.getElementById('cartBody');
+                this.cartBadge = document.getElementById('cartBadge');
+                this.checkoutBtn = document.getElementById('checkoutBtn');
+
+                // Bindings
+                this.initBindings();
+                this.initSearch();
+                this.initFAQ();
+
+                // Render initial
+                this.renderCatalog(StoreData.categories);
+            }
+
+            initBindings() {
+                // Cart Toggle Logic
+                const toggleCart = () => {
+                    const isActive = this.cartDrawer.classList.contains('is-active');
+                    if (isActive) {
+                        this.cartDrawer.classList.remove('is-active');
+                        this.cartOverlay.classList.remove('is-active');
+                        document.body.style.overflow = '';
+                    } else {
+                        this.cartDrawer.classList.add('is-active');
+                        this.cartOverlay.classList.add('is-active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                };
+
+                this.cartToggleBtn.addEventListener('click', toggleCart);
+                this.closeCartBtn.addEventListener('click', toggleCart);
+                this.cartOverlay.addEventListener('click', toggleCart);
+
+                // Cart Subscription Update UI
+                cart.subscribe((items, total, qty) => {
+                    this.updateCartUI(items, total, qty);
+                });
+
+                // Checkout Button
+                this.checkoutBtn.addEventListener('click', () => {
+                    const url = cart.generateWhatsAppUrl();
+                    window.open(url, '_blank');
+                });
+            }
+
+            initSearch() {
+                const handleSearch = Utils.debounce((e) => {
+                    const query = e.target.value.toLowerCase().trim();
+
+                    if (!query) {
+                        this.emptySearchState.style.display = 'none';
+                        this.renderCatalog(StoreData.categories);
+                        return;
+                    }
+
+                    // Filter Logic
+                    const filteredCategories = [];
+                    let hasResults = false;
+
+                    StoreData.categories.forEach(cat => {
+                        const matchedItems = cat.items.filter(item =>
+                            item.name.toLowerCase().includes(query)
+                        );
+
+                        if (matchedItems.length > 0) {
+                            hasResults = true;
+                            filteredCategories.push({
+                                ...cat,
+                                items: matchedItems,
+                                isSearchMatch: true
+                            });
+                        }
+                    });
+
+                    if (hasResults) {
+                        this.emptySearchState.style.display = 'none';
+                        this.renderCatalog(filteredCategories, true); // true = force open all
+                    } else {
+                        this.catalogContainer.innerHTML = '';
+                        this.emptySearchState.style.display = 'block';
+                    }
+                }, 300);
+
+                this.searchInput.addEventListener('input', handleSearch);
+            }
+
+            initFAQ() {
+                const faqItems = document.querySelectorAll('.faq-item');
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question');
+                    question.addEventListener('click', () => {
+                        const isOpen = item.classList.contains('is-open');
+                        // Close all others
+                        faqItems.forEach(f => {
+                            f.classList.remove('is-open');
+                            f.querySelector('svg').style.transform = 'rotate(0deg)';
+                        });
+                        // Open clicked if it wasn't open
+                        if (!isOpen) {
+                            item.classList.add('is-open');
+                            item.querySelector('svg').style.transform = 'rotate(180deg)';
+                        }
+                    });
+                });
+            }
+
+            renderCatalog(categoriesData, forceOpen = false) {
+                this.catalogContainer.innerHTML = '';
+
+                categoriesData.forEach((cat, index) => {
+                    // Create Category Group Wrapper
+                    const groupEl = document.createElement('div');
+                    groupEl.className = 'category-group';
+                    // Open first category by default if not searching, or open all if searching
+                    if (forceOpen || index === 0) {
+                        groupEl.classList.add('is-open');
+                    }
+
+                    // Header
+                    const headerEl = document.createElement('div');
+                    headerEl.className = 'category-header';
+                    headerEl.innerHTML = `
+                        <div class="category-header-left">
+                            <div class="category-icon-wrapper">${cat.icon}</div>
+                            <div class="category-info">
+                                <h2>${cat.title}</h2>
+                                <p>${cat.items.length} Produk Tersedia</p>
+                            </div>
+                        </div>
+                        <div class="category-chevron">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    `;
+
+                    // Accordion toggle logic
+                    headerEl.addEventListener('click', () => {
+                        groupEl.classList.toggle('is-open');
+                    });
+
+                    // Product List Container
+                    const listEl = document.createElement('div');
+                    listEl.className = 'product-list';
+
+                    const listInnerEl = document.createElement('div');
+                    listInnerEl.className = 'product-list-inner';
+
+                    // Inject Products
+                    cat.items.forEach(product => {
+                        const itemEl = document.createElement('div');
+                        itemEl.className = 'product-item';
+
+                        itemEl.innerHTML = `
+                            <div class="product-item-details">
+                                <span class="product-item-name">${product.name}</span>
+                            </div>
+                            <button class="btn btn-outline btn-add-cart" data-id="${product.id}">
+                                + Keranjang
+                            </button>
+                        `;
+
+                        // Add to Cart Event
+                        const addBtn = itemEl.querySelector('.btn-add-cart');
+                        addBtn.addEventListener('click', () => {
+                            cart.addItem(product.id);
+
+                            // Button ripple/feedback effect
+                            addBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Ditambahkan';
+                            addBtn.classList.replace('btn-outline', 'btn-primary');
+
+                            setTimeout(() => {
+                                addBtn.innerHTML = '+ Keranjang';
+                                addBtn.classList.replace('btn-primary', 'btn-outline');
+                            }, 1500);
+                        });
+
+                        listInnerEl.appendChild(itemEl);
+                    });
+
+                    listEl.appendChild(listInnerEl);
+                    groupEl.appendChild(headerEl);
+                    groupEl.appendChild(listEl);
+                    this.catalogContainer.appendChild(groupEl);
+                });
+            }
+
+            updateCartUI(items, total, qty) {
+                // Update Badge
+                if (qty > 0) {
+                    this.cartBadge.style.display = 'flex';
+                    this.cartBadge.textContent = qty > 99 ? '99+' : qty;
+                } else {
+                    this.cartBadge.style.display = 'none';
+                }
+
+                // Update Checkout Button
+                if (items.length > 0) {
+                    this.checkoutBtn.disabled = false;
+                } else {
+                    this.checkoutBtn.disabled = true;
+                }
+
+                // Render Items
+                this.cartBody.innerHTML = '';
+
+                if (items.length === 0) {
+                    this.cartBody.innerHTML = `
+                        <div class="cart-empty-message">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                            <p>Keranjang belanja kosong.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const listWrapper = document.createElement('div');
+                listWrapper.className = 'cart-items-list';
+
+                items.forEach(cartItem => {
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'cart-item';
+
+                    itemEl.innerHTML = `
+                        <div class="cart-item-info">
+                            <span class="cart-item-title">${cartItem.product.name}</span>
+                            <span class="cart-item-category">${cartItem.product.type}</span>
+                        </div>
+                        <div class="cart-item-actions">
+                            <div class="qty-controls">
+                                <button class="qty-btn btn-minus" data-id="${cartItem.product.id}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                </button>
+                                <span class="qty-value">${cartItem.quantity}</span>
+                                <button class="qty-btn btn-plus" data-id="${cartItem.product.id}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                </button>
+                            </div>
+                            <button class="btn-remove" data-id="${cartItem.product.id}" aria-label="Hapus">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                            </button>
+                        </div>
+                    `;
+
+                    // Bind item events
+                    itemEl.querySelector('.btn-minus').addEventListener('click', () => {
+                        cart.updateQuantity(cartItem.product.id, cartItem.quantity - 1);
+                    });
+
+                    itemEl.querySelector('.btn-plus').addEventListener('click', () => {
+                        cart.updateQuantity(cartItem.product.id, cartItem.quantity + 1);
+                    });
+
+                    itemEl.querySelector('.btn-remove').addEventListener('click', () => {
+                        cart.removeItem(cartItem.product.id);
+                        notify.show('Dihapus', 'Barang dihapus dari keranjang', 'error');
+                    });
+
+                    listWrapper.appendChild(itemEl);
+                });
+
+                this.cartBody.appendChild(listWrapper);
+            }
+        }
+
+
+        // 6. INITIALIZATION
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            // Instantiate UI Controller
+            window.appUI = new UIController();
+
+            // Handle Page Loader Removal
+            setTimeout(() => {
+                const loader = document.getElementById('pageLoader');
+                if (loader) {
+                    loader.classList.add('is-hidden');
+                    setTimeout(() => loader.remove(), 500);
+                }
+            }, 1000);
+        });
+
+    </script>
+</body>
+
+</html>
